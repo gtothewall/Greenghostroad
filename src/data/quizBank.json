@@ -1,0 +1,1354 @@
+{
+  "meta": {
+    "difficulty_xp": {
+      "easy": 20,
+      "medium": 40,
+      "hard": 70
+    },
+    "combo_xp_each": 30,
+    "notes": "Solo questions: 9 per character (3 easy/3 medium/3 hard) x10 characters = 90. Combo questions: 5 Duo Challenges (friend+own sidekick) + 5 Crew Combos (two friends) = 10. Correct combo answers award XP to both entities involved."
+  },
+  "factsBank": {
+    "mia": {
+      "easy": [
+        {
+          "id": "mia_e1",
+          "rhyme": "DJs use two turntables side by side, spinning records with musical pride.",
+          "fact": "DJs typically use two turntables (or decks) to mix music.",
+          "q": "How many turntables does a DJ usually use to mix?",
+          "options": [
+            "One",
+            "Two",
+            "Five"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "mia_e2",
+          "rhyme": "The word 'space' can mean the room around you too, not just the stars up in the blue.",
+          "fact": "‘Space’ can refer to physical space or area, not only outer space.",
+          "q": "Besides outer space, what else can the word \"space\" mean?",
+          "options": [
+            "Empty area or room around you",
+            "A type of food",
+            "A dance move"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mia_e3",
+          "rhyme": "Turn the volume knob up, the volume knob down, that changes how loud or soft the sound.",
+          "fact": "A volume knob controls how loud or soft sound is.",
+          "q": "What does a volume knob control?",
+          "options": [
+            "Loudness",
+            "Color",
+            "Temperature"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "mia_m1",
+          "rhyme": "Up, down, left, right, forward, back — six directions, that's the track!",
+          "fact": "Space around us has six basic directions of movement.",
+          "q": "How many directions can you move in space?",
+          "options": [
+            "4",
+            "6",
+            "8"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "mia_m2",
+          "rhyme": "Sound needs air to shake and swing — in true space silence, it can't ring!",
+          "fact": "Sound waves need molecules (like air) to travel — they can't cross empty space.",
+          "q": "Can sound travel through a total vacuum?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "mia_m3",
+          "rhyme": "Every star's a sun so bright — our own sun gives us day and light.",
+          "fact": "Every star you see is a distant sun, just like ours.",
+          "q": "What is a star, basically?",
+          "options": [
+            "A rock",
+            "A sun",
+            "A moon"
+          ],
+          "answer": 1
+        }
+      ],
+      "hard": [
+        {
+          "id": "mia_h1",
+          "rhyme": "A DJ blends two songs into one smooth ride, matching the beats so they never collide.",
+          "fact": "DJs use “beatmatching” to line up the tempo of two tracks.",
+          "q": "What's it called when a DJ matches the tempo of two songs?",
+          "options": [
+            "Beatmatching",
+            "Beatboxing",
+            "Freestyling"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mia_h2",
+          "rhyme": "Six directions meet at a single spot — that center point's the origin, believe it or not!",
+          "fact": "In spatial terms, the point where all directions meet is called the origin.",
+          "q": "What's the name for the point where all six directions meet?",
+          "options": [
+            "The origin",
+            "The equator",
+            "The horizon"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mia_h3",
+          "rhyme": "Crossfaders slide the sound side to side, blending two tracks like a DJ's guide.",
+          "fact": "A crossfader lets a DJ blend audio between two turntables or channels.",
+          "q": "What tool lets a DJ blend sound between two turntables?",
+          "options": [
+            "A crossfader",
+            "A microphone stand",
+            "A speaker cone"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "echo": {
+      "easy": [
+        {
+          "id": "echo_e1",
+          "rhyme": "Air is all around, though it's hard to see, it fills up the space from the ground to a tree.",
+          "fact": "Air is invisible but present everywhere around us.",
+          "q": "Can you usually see air?",
+          "options": [
+            "No",
+            "Yes",
+            "Only at night"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "echo_e2",
+          "rhyme": "MCs use a microphone to make their voice loud, so their rhymes can reach the whole crowd.",
+          "fact": "Microphones amplify a voice so a crowd can hear it.",
+          "q": "What tool helps an MC's voice reach a big crowd?",
+          "options": [
+            "A microphone",
+            "A paintbrush",
+            "A skateboard"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "echo_e3",
+          "rhyme": "Take a breath in, then let it out slow — that's how your lungs help your body go.",
+          "fact": "Lungs bring air in and out of the body.",
+          "q": "What body part do you breathe air into?",
+          "options": [
+            "Lungs",
+            "Stomach",
+            "Elbow"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "echo_m1",
+          "rhyme": "Breathe in deep, let your rhymes flow — air fuels the fire in your vocal show!",
+          "fact": "Breath control from your lungs powers your voice.",
+          "q": "What powers the sound of your voice?",
+          "options": [
+            "Your breath",
+            "Your elbows",
+            "Your shoes"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "echo_m2",
+          "rhyme": "Wind is just air on the run — pushed by heat from our big sun.",
+          "fact": "Wind happens when the sun heats air unevenly, so it moves around.",
+          "q": "What mainly causes wind?",
+          "options": [
+            "The moon",
+            "Uneven heating from the sun",
+            "Ocean waves"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "echo_m3",
+          "rhyme": "Layers stack up, thin to thick — our atmosphere's a five-layer trick.",
+          "fact": "Earth's atmosphere is made of several stacked layers.",
+          "q": "Is Earth's atmosphere made of layers?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "echo_h1",
+          "rhyme": "MCs freestyle rhymes right off the top, making up bars before they stop.",
+          "fact": "Freestyling is improvising rhymes on the spot, without prewritten lyrics.",
+          "q": "What's it called when an MC makes up rhymes on the spot?",
+          "options": [
+            "Freestyling",
+            "Sampling",
+            "Scratching"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "echo_h2",
+          "rhyme": "Air pressure pushes on you all day, even though you don't feel it, it's here to stay.",
+          "fact": "Atmospheric air pressure constantly presses on us, though we don't usually notice it.",
+          "q": "Is there air pressure pushing on you all the time, even if you can't feel it?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "echo_h3",
+          "rhyme": "A rhyme scheme's the pattern of rhymes in a song, like AABB, and it don't take long!",
+          "fact": "A rhyme scheme is the pattern of rhyming lines in lyrics, like AABB.",
+          "q": "What do we call the pattern of rhymes in a song?",
+          "options": [
+            "Rhyme scheme",
+            "Time signature",
+            "Chorus line"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "king": {
+      "easy": [
+        {
+          "id": "king_e1",
+          "rhyme": "Fire feels warm, and it glows bright with light, that's heat and light put together — quite a sight!",
+          "fact": "Fire produces both heat and light.",
+          "q": "What two things does fire give off?",
+          "options": [
+            "Heat and light",
+            "Cold and dark",
+            "Water and ice"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "king_e2",
+          "rhyme": "Graffiti artists use spray cans with care, to paint big bold letters up in the air.",
+          "fact": "Graffiti art is often made using spray paint.",
+          "q": "What tool do graffiti artists often use?",
+          "options": [
+            "Spray paint",
+            "A hammer",
+            "A violin"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "king_e3",
+          "rhyme": "Never touch a flame, it's much too hot, always ask a grown-up, that's a smart thought!",
+          "fact": "Fire safety: never touch flames, and ask an adult for help around fire.",
+          "q": "What should you do if you see a fire?",
+          "options": [
+            "Tell a grown-up",
+            "Touch it",
+            "Ignore it"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "king_m1",
+          "rhyme": "Fire needs three: heat, fuel, air — take one away, the flame's not there!",
+          "fact": "A fire needs heat, fuel, and oxygen — the ‘fire triangle.’",
+          "q": "Which is NOT one of the three things fire needs?",
+          "options": [
+            "Fuel",
+            "Oxygen",
+            "Ice"
+          ],
+          "answer": 2
+        },
+        {
+          "id": "king_m2",
+          "rhyme": "Red flame's warm, but blue's more hot — color tells you what heat's got.",
+          "fact": "Flame color is a clue to temperature — blue flames burn hotter than red ones.",
+          "q": "Which flame color is usually hotter?",
+          "options": [
+            "Red",
+            "Blue"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "king_m3",
+          "rhyme": "Spray paint's pigment mixed with gas, pushed out fast by pressure — pass!",
+          "fact": "Spray cans use pressurized gas to push pigment out in a fine mist.",
+          "q": "What pushes the paint out of a spray can?",
+          "options": [
+            "Pressurized gas",
+            "A tiny fan",
+            "Magnets"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "king_h1",
+          "rhyme": "A mural's a big painting on a wall, telling a story that's seen by all.",
+          "fact": "A mural is a large piece of artwork painted directly on a wall.",
+          "q": "What do we call a big painting made directly on a wall?",
+          "options": [
+            "A mural",
+            "A sketchbook",
+            "A canvas roll"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "king_h2",
+          "rhyme": "Fire needs fuel to keep burning strong, without it the flame won't last very long.",
+          "fact": "Fuel is required to sustain a fire, as part of the fire triangle.",
+          "q": "What happens to a fire if it runs out of fuel?",
+          "options": [
+            "It goes out",
+            "It gets bigger",
+            "It turns blue"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "king_h3",
+          "rhyme": "Stencils help artists repeat a design, tracing the same shape again and in line.",
+          "fact": "Stencils are used in art (including graffiti) to repeat a design precisely.",
+          "q": "What tool helps an artist repeat the exact same shape?",
+          "options": [
+            "A stencil",
+            "An eraser",
+            "A ruler only"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "chace": {
+      "easy": [
+        {
+          "id": "chace_e1",
+          "rhyme": "The ground beneath you is solid and still, that's the earth, from the valley to the hill.",
+          "fact": "Earth (the ground) is generally solid beneath us.",
+          "q": "What do we call the solid ground beneath our feet?",
+          "options": [
+            "Earth or ground",
+            "Sky",
+            "Ocean"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "chace_e2",
+          "rhyme": "Breaking is a dance with spins and flips, done to a beat with quick footwork tips.",
+          "fact": "Breaking (breakdancing) involves spins, flips, and fast footwork.",
+          "q": "What is \"breaking\"?",
+          "options": [
+            "A style of dance",
+            "A type of food",
+            "A musical instrument"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "chace_e3",
+          "rhyme": "Stretch before you dance, nice and slow, that helps your muscles bend and go.",
+          "fact": "Stretching helps prepare muscles for movement.",
+          "q": "Why do dancers stretch before dancing?",
+          "options": [
+            "To help their muscles move better",
+            "To make noise",
+            "To get taller"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "chace_m1",
+          "rhyme": "Gravity pulls you to the floor — that's why you spin, then rise for more.",
+          "fact": "Gravity pulls everything toward the ground.",
+          "q": "What pulls a b-boy back down after a jump?",
+          "options": [
+            "Gravity",
+            "Wind",
+            "Magnets"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "chace_m2",
+          "rhyme": "Friction grips your sneaker sole — helps you freeze and hold control.",
+          "fact": "Friction between your shoes and the floor is what lets you grip and freeze.",
+          "q": "What lets your sneakers grip the floor?",
+          "options": [
+            "Gravity",
+            "Friction",
+            "Sound waves"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "chace_m3",
+          "rhyme": "Muscles pull on bones like strings — that's the power a b-boy's body brings.",
+          "fact": "Muscles pull on bones, through tendons, to create movement.",
+          "q": "What do muscles pull on to create movement?",
+          "options": [
+            "Bones",
+            "Air",
+            "Paint"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "chace_h1",
+          "rhyme": "A 'freeze' in breaking holds the pose in place, balancing still with style and grace.",
+          "fact": "A “freeze” is a breaking move where the dancer holds a balanced pose.",
+          "q": "What's it called when a b-boy or b-girl holds a still balanced pose?",
+          "options": [
+            "A freeze",
+            "A slide",
+            "A spin only"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "chace_h2",
+          "rhyme": "Earth's crust is the thin outer shell we stand on, way below is a hot core it's built upon.",
+          "fact": "Earth has an outer crust, with hotter layers (mantle and core) beneath it.",
+          "q": "What is the outer layer of the Earth called?",
+          "options": [
+            "The crust",
+            "The core",
+            "The clouds"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "chace_h3",
+          "rhyme": "Momentum keeps a spin going strong, the faster you turn, the more it lasts long.",
+          "fact": "Momentum helps sustain spinning motion — more speed means more momentum.",
+          "q": "What helps keep a dancer's spin going?",
+          "options": [
+            "Momentum",
+            "Silence",
+            "Gravity pulling sideways"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "hope": {
+      "easy": [
+        {
+          "id": "hope_e1",
+          "rhyme": "Water can be liquid, ice, or steam, three different forms of the same team.",
+          "fact": "Water exists in three states: liquid, solid (ice), and gas (steam or vapor).",
+          "q": "Which of these is a form of water?",
+          "options": [
+            "Ice",
+            "Rock",
+            "Fire"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hope_e2",
+          "rhyme": "Reading books fills your brain with facts, that's how knowledge grows and stays intact.",
+          "fact": "Reading builds knowledge.",
+          "q": "What's one great way to gain knowledge?",
+          "options": [
+            "Reading books",
+            "Ignoring questions",
+            "Skipping school"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hope_e3",
+          "rhyme": "Rivers flow downhill to the sea, carrying water endlessly.",
+          "fact": "Rivers generally flow downhill toward larger bodies of water like the sea.",
+          "q": "Which way do rivers usually flow?",
+          "options": [
+            "Downhill",
+            "Uphill",
+            "Sideways only"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "hope_m1",
+          "rhyme": "Water rises, turns to steam, falls as rain — it's a cycle theme.",
+          "fact": "The water cycle: evaporation, condensation, then precipitation.",
+          "q": "What comes after water evaporates into the sky?",
+          "options": [
+            "It disappears forever",
+            "It condenses into clouds",
+            "It turns to rock"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "hope_m2",
+          "rhyme": "Ice floats high 'cause it's less dense — that's frozen water's one defense.",
+          "fact": "Ice is less dense than liquid water, so it floats.",
+          "q": "Why does ice float on water?",
+          "options": [
+            "It's less dense than liquid water",
+            "It's magnetic",
+            "It's warmer"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hope_m3",
+          "rhyme": "Knowledge flows like water clear — wisdom passed from ear to ear.",
+          "fact": "Knowledge, like water, moves and spreads when it's shared.",
+          "q": "What's one way knowledge is passed along, just like water flows?",
+          "options": [
+            "By sharing it",
+            "By hiding it",
+            "By freezing it"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "hope_h1",
+          "rhyme": "Water covers most of our Earth's face, about seventy percent of the whole place!",
+          "fact": "Roughly 70% of Earth's surface is covered by water.",
+          "q": "About how much of Earth's surface is covered by water?",
+          "options": [
+            "About 70%",
+            "About 10%",
+            "About 100%"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hope_h2",
+          "rhyme": "A hypothesis is a guess you can test, using science to see which idea is best.",
+          "fact": "A hypothesis is a testable explanation or prediction in the scientific method.",
+          "q": "What do scientists call a testable guess?",
+          "options": [
+            "A hypothesis",
+            "A rumor",
+            "A recipe"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hope_h3",
+          "rhyme": "Salt water and fresh water aren't the same, oceans are salty, rivers are plain.",
+          "fact": "Oceans are saltwater; most rivers and lakes are freshwater.",
+          "q": "Which is saltier, the ocean or a river?",
+          "options": [
+            "The ocean",
+            "The river",
+            "They're the same"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "mega": {
+      "easy": [
+        {
+          "id": "mega_e1",
+          "rhyme": "Bats sleep upside down through the day, then wake at night to swoop and play.",
+          "fact": "Bats are nocturnal and often sleep hanging upside down during the day.",
+          "q": "When are bats usually most active?",
+          "options": [
+            "At night",
+            "At noon",
+            "Underwater"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mega_e2",
+          "rhyme": "Sound travels in waves, moving through the air, until it reaches your ear with care.",
+          "fact": "Sound travels through air in waves.",
+          "q": "How does sound usually travel to your ears?",
+          "options": [
+            "Through waves in the air",
+            "Through light beams",
+            "It doesn't move"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mega_e3",
+          "rhyme": "A drum makes a boom when you give it a hit, that's vibration — sound's favorite bit.",
+          "fact": "Sound is created by vibration.",
+          "q": "What makes the sound when you hit a drum?",
+          "options": [
+            "Vibration",
+            "Silence",
+            "Sunlight"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "mega_m1",
+          "rhyme": "Bats send out sound that bounces back — that's echolocation, nature's sound hack.",
+          "fact": "Bats use echolocation, bouncing sound waves off objects to find their way in the dark.",
+          "q": "How do bats ‘see’ in the dark?",
+          "options": [
+            "Echolocation",
+            "Night vision goggles",
+            "They don't move at night"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mega_m2",
+          "rhyme": "Your ear catches sound waves, sends them to your brain, so you can hear a song's whole refrain.",
+          "fact": "Ears convert sound waves into signals your brain can understand.",
+          "q": "What does your ear turn sound waves into?",
+          "options": [
+            "Signals for your brain",
+            "Light",
+            "Smell"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mega_m3",
+          "rhyme": "Louder sounds carry more energy through the air — that's why a shout travels further than a whisper's care.",
+          "fact": "Louder sounds have more energy, which is part of why they travel further.",
+          "q": "Which travels further, a shout or a whisper?",
+          "options": [
+            "A shout",
+            "A whisper"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "mega_h1",
+          "rhyme": "Bats aren't blind, that old idea's wrong — most bats can see, they've had eyesight all along.",
+          "fact": "The phrase \"blind as a bat\" is a myth — most bats can see just fine.",
+          "q": "Is it true that bats are actually blind?",
+          "options": [
+            "No, that's a myth",
+            "Yes, completely blind"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mega_h2",
+          "rhyme": "Pitch is how high or low a sound may be, a tiny mouse squeaks in a pitch quite high, you see.",
+          "fact": "Pitch describes how high or low a sound is.",
+          "q": "What do we call how high or low a sound is?",
+          "options": [
+            "Pitch",
+            "Volume",
+            "Rhythm"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "mega_h3",
+          "rhyme": "Sound moves slower than a beam of light, that's why thunder booms after lightning's bright.",
+          "fact": "Sound travels much slower than light, which is why thunder is heard after lightning is seen.",
+          "q": "Why do we usually see lightning before we hear thunder?",
+          "options": [
+            "Sound travels slower than light",
+            "Thunder happens after lightning",
+            "Light is louder"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "hum": {
+      "easy": [
+        {
+          "id": "hum_e1",
+          "rhyme": "A hug feels warm, a poke feels quick, both are touch — that's a body trick.",
+          "fact": "Touch includes many sensations, like pressure and warmth.",
+          "q": "Is a hug an example of touch?",
+          "options": [
+            "Yes",
+            "No",
+            "Only in winter"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hum_e2",
+          "rhyme": "Bees buzz from flower to flower each day, collecting pollen along the way.",
+          "fact": "Bees collect pollen while moving between flowers.",
+          "q": "What do bees collect from flowers?",
+          "options": [
+            "Pollen",
+            "Rocks",
+            "Ice"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hum_e3",
+          "rhyme": "Your fingertips are extra good at feeling things, more sensitive than your elbows or knees, they bring.",
+          "fact": "Fingertips have a high concentration of touch receptors, more sensitive than many other body parts.",
+          "q": "Which is usually more sensitive to touch, your fingertips or your elbow?",
+          "options": [
+            "Fingertips",
+            "Elbow",
+            "They're the same"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "hum_m1",
+          "rhyme": "Bees feel the world through tiny hairs, sensing the wind and vibrations in the air.",
+          "fact": "Bees have tiny sensory hairs that detect touch, vibration, and airflow.",
+          "q": "What do bees use to sense touch and vibration?",
+          "options": [
+            "Tiny hairs",
+            "Their wings only",
+            "Their antennae's color"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hum_m2",
+          "rhyme": "Your skin's your biggest sense of all — it feels a touch, whether gentle or a rough footfall.",
+          "fact": "Skin is the body's largest organ, and it's covered in touch receptors.",
+          "q": "What is the body's largest touch-sensing organ?",
+          "options": [
+            "Skin",
+            "Tongue",
+            "Hair"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hum_m3",
+          "rhyme": "Touch signals race from fingertip to brain, arriving in a flash, again and again.",
+          "fact": "Touch signals travel quickly through nerves from your skin to your brain.",
+          "q": "Where do touch signals travel to from your skin?",
+          "options": [
+            "Your brain",
+            "Your stomach",
+            "Your ears"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "hum_h1",
+          "rhyme": "Nerve endings in skin send signals with speed, that's how you feel a touch you might need.",
+          "fact": "Nerve endings in the skin detect touch and send signals to the brain.",
+          "q": "What in your skin detects touch?",
+          "options": [
+            "Nerve endings",
+            "Hair color",
+            "Sweat only"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hum_h2",
+          "rhyme": "Bees can sense the buzz of their hive-mates near, using vibration instead of an ear.",
+          "fact": "Bees can sense vibrations, which helps with communication, like the waggle dance.",
+          "q": "What can bees sense to help them communicate?",
+          "options": [
+            "Vibrations",
+            "Colors only",
+            "Nothing at all"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "hum_h3",
+          "rhyme": "Some receptors sense pressure and stretch — that's how your skin can tell a tight or loose belt.",
+          "fact": "Different touch receptors in skin detect different things, like pressure and stretch.",
+          "q": "Can your skin have different receptors for different kinds of touch, like pressure vs. stretch?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "finx": {
+      "easy": [
+        {
+          "id": "finx_e1",
+          "rhyme": "Your pupil gets bigger in a dark room, letting more light in to help vision bloom.",
+          "fact": "Pupils dilate (get bigger) in low light to let in more light.",
+          "q": "What happens to your pupils in a dark room?",
+          "options": [
+            "They get bigger",
+            "They disappear",
+            "They turn blue"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "finx_e2",
+          "rhyme": "Cats have whiskers that help them feel space, not just their eyes that see a face.",
+          "fact": "Cat whiskers help them sense their surroundings.",
+          "q": "What do cat whiskers help a cat sense?",
+          "options": [
+            "Space around them",
+            "Only colors",
+            "Only sound"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "finx_e3",
+          "rhyme": "Rainbows show colors when light bends through rain, red, orange, yellow, green — a colorful chain.",
+          "fact": "Rainbows form when light bends (refracts) through raindrops, showing colors.",
+          "q": "What causes a rainbow to appear?",
+          "options": [
+            "Light bending through rain",
+            "Loud thunder",
+            "Strong wind"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "finx_m1",
+          "rhyme": "Cat eyes catch the tiniest light — that's why they see so well at night.",
+          "fact": "Cats' eyes are specially adapted to see well in low light.",
+          "q": "Why can cats see well at night?",
+          "options": [
+            "Their eyes catch tiny amounts of light",
+            "They don't actually see at night",
+            "They use whiskers instead"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "finx_m2",
+          "rhyme": "Your eye has a part that bends the light just right, focusing what you see, day or night.",
+          "fact": "The lens in your eye focuses light onto the retina so you can see clearly.",
+          "q": "What part of your eye focuses light?",
+          "options": [
+            "The lens",
+            "The eyebrow",
+            "The eyelash"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "finx_m3",
+          "rhyme": "Two eyes see two views side by side — your brain blends them for depth, deep and wide.",
+          "fact": "Having two eyes gives you binocular vision, which helps you judge depth and distance.",
+          "q": "What does having two eyes help you judge?",
+          "options": [
+            "Depth and distance",
+            "Sound direction",
+            "Temperature"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "finx_h1",
+          "rhyme": "The retina's a layer inside your eye, catching the light as it comes passing by.",
+          "fact": "The retina is the layer at the back of the eye that captures light.",
+          "q": "What part of the eye captures light at the back?",
+          "options": [
+            "The retina",
+            "The eyebrow",
+            "The eyelid"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "finx_h2",
+          "rhyme": "Cats have a special layer that reflects light back, that's why their eyes glow in the dark — no lack!",
+          "fact": "Cats have a reflective layer (tapetum lucidum) that makes their eyes appear to glow in low light.",
+          "q": "What causes a cat's eyes to seem to glow in the dark?",
+          "options": [
+            "A reflective layer in their eyes",
+            "Special sunglasses",
+            "Magic dust"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "finx_h3",
+          "rhyme": "Color blindness means some colors mix and blend, that's a difference some people's eyes attend.",
+          "fact": "Color blindness is a condition where a person has difficulty distinguishing certain colors.",
+          "q": "What is color blindness?",
+          "options": [
+            "Difficulty telling certain colors apart",
+            "Not being able to see at all",
+            "Seeing only in black"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "dash": {
+      "easy": [
+        {
+          "id": "dash_e1",
+          "rhyme": "Your nose can smell a cookie baking sweet, that's your sense of smell — quite a treat!",
+          "fact": "Smell lets you detect scents, like food.",
+          "q": "Which body part do you smell with?",
+          "options": [
+            "Your nose",
+            "Your elbow",
+            "Your knee"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "dash_e2",
+          "rhyme": "Wolves live and hunt together in a pack, working as a team, that's their knack.",
+          "fact": "Wolves are social animals that live in packs.",
+          "q": "Do wolves usually live alone or in packs?",
+          "options": [
+            "In packs",
+            "Completely alone",
+            "In pairs of ten thousand"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "dash_e3",
+          "rhyme": "Some smells warn you, like smoke in the air, that's your nose helping you take care.",
+          "fact": "Smell can serve as a warning sense, like detecting smoke.",
+          "q": "Can your sense of smell help warn you of danger, like smoke?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "dash_m1",
+          "rhyme": "A wolf can smell a scent from a mile away — that nose can track a trail all day.",
+          "fact": "Wolves have an extraordinarily strong sense of smell.",
+          "q": "Which sense is a wolf especially famous for?",
+          "options": [
+            "Smell",
+            "Taste",
+            "Sight"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "dash_m2",
+          "rhyme": "Smells sneak in through your nose so neat — tiny particles floating, invisible and fleet.",
+          "fact": "Smelling works by detecting tiny particles that float through the air.",
+          "q": "What floats through the air for your nose to detect?",
+          "options": [
+            "Tiny particles",
+            "Sound waves",
+            "Light rays"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "dash_m3",
+          "rhyme": "Smell and taste are teammates in your head — that's why a stuffy nose dulls your bread.",
+          "fact": "Smell and taste work closely together to create the sense of flavor.",
+          "q": "Which other sense works closely with smell to create flavor?",
+          "options": [
+            "Taste",
+            "Touch",
+            "Sound"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "dash_h1",
+          "rhyme": "A wolf's nose has way more smell receptors than yours, that's why their sniffing outperforms, of course!",
+          "fact": "Wolves (like dogs) have far more scent receptors than humans, giving them a much stronger sense of smell.",
+          "q": "Do wolves generally have a stronger sense of smell than humans?",
+          "options": [
+            "Yes",
+            "No",
+            "They're exactly equal"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "dash_h2",
+          "rhyme": "Smell receptors line the top of your nose, sending signals wherever a scent goes.",
+          "fact": "Olfactory (smell) receptors are located inside the nasal cavity.",
+          "q": "Where are your smell receptors mainly located?",
+          "options": [
+            "Inside your nose",
+            "In your ears",
+            "On your tongue"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "dash_h3",
+          "rhyme": "Some animals mark their space with scent, that's called scent-marking, a wild intent.",
+          "fact": "Many animals, including wolves, use scent marking to communicate territory.",
+          "q": "What is it called when an animal uses smell to mark its territory?",
+          "options": [
+            "Scent-marking",
+            "Sight-marking",
+            "Sound-marking"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    "wish": {
+      "easy": [
+        {
+          "id": "wish_e1",
+          "rhyme": "Sour candy makes your face scrunch tight, that's your taste buds reacting right.",
+          "fact": "Sour is one of the basic tastes detected by taste buds.",
+          "q": "What taste might make your face scrunch up?",
+          "options": [
+            "Sour",
+            "Sweet",
+            "Warm"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "wish_e2",
+          "rhyme": "Frogs live both in water and on land, that's why we call them amphibians, understand?",
+          "fact": "Frogs are amphibians, living both in water and on land.",
+          "q": "What kind of animal is a frog?",
+          "options": [
+            "An amphibian",
+            "A bird",
+            "A fish only"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "wish_e3",
+          "rhyme": "Your tongue can taste sweet things like a treat, that's one of the tastes your taste buds meet.",
+          "fact": "Sweet is one of the basic tastes.",
+          "q": "Is sweet one of the basic tastes your tongue can detect?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 0
+        }
+      ],
+      "medium": [
+        {
+          "id": "wish_m1",
+          "rhyme": "Your tongue has tiny bumps called taste buds bright — they sense sweet, salty, sour, bitter, quite a delight.",
+          "fact": "Your tongue is covered in taste buds that detect different tastes, like sweet, salty, sour, and bitter.",
+          "q": "What are the tiny bumps on your tongue that sense flavor called?",
+          "options": [
+            "Taste buds",
+            "Tonsils",
+            "Freckles"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "wish_m2",
+          "rhyme": "A frog's tongue flicks out fast as a wink, snapping up bugs quicker than you'd think.",
+          "fact": "Frogs use their long, quick tongues to catch prey.",
+          "q": "How does a frog usually catch its food?",
+          "options": [
+            "With its quick tongue",
+            "By chewing slowly",
+            "By waiting for it to fall in its mouth"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "wish_m3",
+          "rhyme": "Taste buds refresh and renew every couple weeks — that's why new flavors are never far as it seeks.",
+          "fact": "Taste buds regenerate, typically renewing every couple of weeks.",
+          "q": "Do taste buds regenerate over time?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "answer": 0
+        }
+      ],
+      "hard": [
+        {
+          "id": "wish_h1",
+          "rhyme": "Umami's a taste that's savory and deep, found in foods like broth and cheese we keep.",
+          "fact": "Umami is a savory taste, one of the five basic tastes.",
+          "q": "What do we call the savory taste found in foods like broth and cheese?",
+          "options": [
+            "Umami",
+            "Sourami",
+            "Bittersweet"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "wish_h2",
+          "rhyme": "A frog's skin can soak up water nearby — that's how they drink, no cup, don't ask why.",
+          "fact": "Frogs can absorb water through their skin instead of drinking with a mouth.",
+          "q": "How do frogs mostly take in water?",
+          "options": [
+            "Through their skin",
+            "Through a straw",
+            "They don't need water"
+          ],
+          "answer": 0
+        },
+        {
+          "id": "wish_h3",
+          "rhyme": "Taste and smell work as a team you see, that's why foods taste different when your nose can't agree.",
+          "fact": "Taste and smell combine to create your overall perception of flavor.",
+          "q": "Why might food taste different when your nose is stuffy?",
+          "options": [
+            "Taste and smell work together for flavor",
+            "Your tongue stops working",
+            "Food changes itself"
+          ],
+          "answer": 0
+        }
+      ]
+    }
+  },
+  "combos": [
+    {
+      "id": "duo_mia_mega",
+      "type": "duo",
+      "pairIds": [
+        "mia",
+        "mega"
+      ],
+      "title": "Mia & Mega",
+      "theme": "Space + Sound",
+      "rhyme": "Sound needs space to travel and spread, but true empty space leaves sound waves dead.",
+      "fact": "Sound needs a medium like air to travel — it can't cross the empty vacuum of outer space.",
+      "q": "Can sound travel through the empty vacuum of space?",
+      "options": [
+        "No",
+        "Yes"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "duo_echo_hum",
+      "type": "duo",
+      "pairIds": [
+        "echo",
+        "hum"
+      ],
+      "title": "Echo & Hum",
+      "theme": "Air + Touch",
+      "rhyme": "Wind is moving air you can feel on your skin, that's air and touch, teaming up again.",
+      "fact": "When wind blows on your skin, you're sensing moving air through your sense of touch.",
+      "q": "When wind blows on your skin, which two things are working together?",
+      "options": [
+        "Air and touch",
+        "Taste and sound",
+        "Sight and smell"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "duo_king_finx",
+      "type": "duo",
+      "pairIds": [
+        "king",
+        "finx"
+      ],
+      "title": "King & Finx",
+      "theme": "Fire + Sight",
+      "rhyme": "Firelight glows bright enough to see, lighting up the dark for you and me.",
+      "fact": "Fire gives off light, which your sense of sight uses to see in the dark.",
+      "q": "What sense do you use to notice firelight in the dark?",
+      "options": [
+        "Sight",
+        "Taste",
+        "Touch"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "duo_chace_dash",
+      "type": "duo",
+      "pairIds": [
+        "chace",
+        "dash"
+      ],
+      "title": "Chace & Dash",
+      "theme": "Earth + Smell",
+      "rhyme": "A wolf sniffs the earthy trail on the ground, following scents where prey can be found.",
+      "fact": "Wolves use their strong sense of smell to follow scent trails across the earth.",
+      "q": "What sense helps a wolf follow a trail on the earth?",
+      "options": [
+        "Smell",
+        "Taste",
+        "Sight"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "duo_hope_wish",
+      "type": "duo",
+      "pairIds": [
+        "hope",
+        "wish"
+      ],
+      "title": "Hope & Wish",
+      "theme": "Water + Taste",
+      "rhyme": "Water itself doesn't taste like a treat, but it carries flavors we taste when we eat.",
+      "fact": "Plain water doesn't have much taste of its own — it helps carry other flavors to your taste buds.",
+      "q": "Does plain water usually have a strong taste of its own?",
+      "options": [
+        "No, not really",
+        "Yes, very sweet",
+        "Yes, very bitter"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "crew_mia_echo",
+      "type": "crew",
+      "pairIds": [
+        "mia",
+        "echo"
+      ],
+      "title": "Mia & Echo",
+      "theme": "DJing + MCing",
+      "rhyme": "A DJ and MC share the stage as a team, spinning beats and rhymes to fulfill the dream.",
+      "fact": "In hip hop, the DJ plays and mixes the beats while the MC raps over them.",
+      "q": "In hip hop, who usually raps over the beats a DJ plays?",
+      "options": [
+        "The MC",
+        "The graffiti artist",
+        "The b-boy"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "crew_king_chace",
+      "type": "crew",
+      "pairIds": [
+        "king",
+        "chace"
+      ],
+      "title": "King & Chace",
+      "theme": "Graffiti + Breaking",
+      "rhyme": "Graffiti walls and breaking crews both came alive on city blocks and avenues.",
+      "fact": "Graffiti art and breaking (breakdancing) are both recognized as core elements of hip hop culture.",
+      "q": "Graffiti and breaking are both elements of which culture?",
+      "options": [
+        "Hip hop",
+        "Ballet",
+        "Opera"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "crew_hope_mia",
+      "type": "crew",
+      "pairIds": [
+        "hope",
+        "mia"
+      ],
+      "title": "Hope & Mia",
+      "theme": "Knowledge + DJing",
+      "rhyme": "Knowledge and space both ask you to explore — knowledge of ideas, space of the world and more.",
+      "fact": "In this crew, Hope represents the hip hop element of Knowledge, while Mia represents DJing.",
+      "q": "Which crew member's hip hop element is all about learning and wisdom?",
+      "options": [
+        "Hope (Knowledge)",
+        "Mia (DJing)",
+        "King (Graffiti)"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "crew_echo_hope",
+      "type": "crew",
+      "pairIds": [
+        "echo",
+        "hope"
+      ],
+      "title": "Echo & Hope",
+      "theme": "MCing + Knowledge",
+      "rhyme": "MCs often write rhymes packed with knowledge and facts, blending words and wisdom — that's a hip hop pact.",
+      "fact": "Many MCs weave knowledge, messages, and storytelling into their rhymes, not just rhythm.",
+      "q": "Besides rhyming, what do many MCs pack into their lyrics?",
+      "options": [
+        "Knowledge and messages",
+        "Only nonsense",
+        "Silence"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "crew_chace_king",
+      "type": "crew",
+      "pairIds": [
+        "chace",
+        "king"
+      ],
+      "title": "Chace & King",
+      "theme": "Breaking + Graffiti",
+      "rhyme": "Breaking needs a strong, solid floor to spin, graffiti needs a wall to begin.",
+      "fact": "Breakers need solid ground to spin and freeze, just like graffiti artists need a wall as their canvas.",
+      "q": "What does a breaker need beneath them to spin and freeze?",
+      "options": [
+        "A solid floor",
+        "A puddle of water",
+        "Thin air"
+      ],
+      "answer": 0
+    }
+  ]
+}
