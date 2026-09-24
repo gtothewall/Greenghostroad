@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CHARACTERS, ACCENT } from "../data/characters.js";
 
 export default function Landing() {
+  const [flipped, setFlipped] = useState({});
+  const toggleFlip = (id) => setFlipped((f) => ({ ...f, [id]: !f[id] }));
+
   return (
     <div className="landing">
       <style>{LANDING_CSS}</style>
@@ -25,7 +29,7 @@ export default function Landing() {
           ))}
         </div>
         <h1>Five friends,<br />five elements,<br />one club.</h1>
-        <p className="tag">Welcome to Boo York — where Mia, Echo, King, Chace, and Hope turn earth, air, fire, water, and space into beats, rhymes, and moves.</p>
+        <p className="tag">Welcome to The Ghoul Kids Club — where Mia, Echo, King, Chace, and Hope turn space, air, fire, earth, and water into beats, rhymes, art, moves, and wisdom.</p>
         <div className="hero-cta">
           <a href="#crew" className="btn btn-primary">Meet the Crew</a>
           <a href="#shop" className="btn btn-ghost">Shop the Drop</a>
@@ -42,18 +46,23 @@ export default function Landing() {
           <div className="crew-grid">
             {CHARACTERS.map((c) => {
               const accent = ACCENT[c.id];
+              const isFlipped = !!flipped[c.id];
               return (
-                <div
-                  className="card"
-                  key={c.id}
-                  style={{ borderColor: accent.border, boxShadow: `6px 6px 0 ${accent.border}` }}
-                >
-                  <div className="badge" style={{ borderColor: accent.border }}>
-                    <img src={c.img} alt={`${c.name} badge`} />
+                <div className="card-flip" key={c.id} onClick={() => toggleFlip(c.id)}>
+                  <div className={`card-flip-inner ${isFlipped ? "is-flipped" : ""}`}>
+                    <div className="card card-face" style={{ borderColor: accent.border, boxShadow: `6px 6px 0 ${accent.border}` }}>
+                      <div className="badge" style={{ borderColor: accent.border }}>
+                        <img src={c.img} alt={`${c.name} badge`} />
+                      </div>
+                      <h3>{c.name}</h3>
+                      <div className="role" style={{ color: accent.text }}>{c.species} · {c.natural} · {c.hiphop}</div>
+                      <p className="blurb">{c.blurb}</p>
+                    </div>
+                    <div className="card card-face card-back" style={{ borderColor: accent.border, boxShadow: `6px 6px 0 ${accent.border}` }}>
+                      <img className="pose" src={c.pose} alt={`${c.name} full pose`} />
+                      <h3>{c.name}</h3>
+                    </div>
                   </div>
-                  <h3>{c.name}</h3>
-                  <div className="role" style={{ color: accent.text }}>{c.species} · {c.natural} · {c.hiphop}</div>
-                  <p className="blurb">{c.blurb}</p>
                 </div>
               );
             })}
@@ -205,6 +214,42 @@ const LANDING_CSS = `
   grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
   gap:26px;
 }
+.landing .card-flip{
+  perspective:1200px;
+  cursor:pointer;
+  min-height:360px;
+}
+.landing .card-flip-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:360px;
+  transition:transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style:preserve-3d;
+}
+.landing .card-flip-inner.is-flipped{
+  transform:rotateY(180deg);
+}
+.landing .card-face{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.landing .card-back{
+  transform:rotateY(180deg);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:18px;
+}
+.landing .card-back .pose{
+  max-width:80%;
+  max-height:78%;
+  object-fit:contain;
+}
 .landing .card{
   background:var(--card);
   border:var(--line) solid var(--ink);
@@ -257,5 +302,6 @@ const LANDING_CSS = `
 
 @media (prefers-reduced-motion: reduce){
   .landing .hero-dots span{animation:none; opacity:1;}
+  .landing .card-flip-inner{transition:none;}
 }
 `;
