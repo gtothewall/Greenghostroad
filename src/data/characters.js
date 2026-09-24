@@ -38,6 +38,7 @@ export const CHARACTERS = [
       name: "Mega",
       species: "Bat",
       sense: "Sound",
+      color: "#D9407F",
       img: megaBadge,
       pose: megaPose,
       blurb: "Hears the whole world through sound waves and echoes.",
@@ -60,6 +61,7 @@ export const CHARACTERS = [
       name: "Hum",
       species: "Bumblebee",
       sense: "Touch",
+      color: "#D9A400",
       img: humBadge,
       pose: humPose,
       blurb: "Feels every breeze and buzz with the tiniest hairs.",
@@ -82,6 +84,7 @@ export const CHARACTERS = [
       name: "Finx",
       species: "Tabby cat",
       sense: "Sight",
+      color: "#E8850A",
       img: finxBadge,
       pose: finxPose,
       blurb: "Spots every detail, even in the dimmest light.",
@@ -104,6 +107,7 @@ export const CHARACTERS = [
       name: "Dash",
       species: "Wolf pup",
       sense: "Smell",
+      color: "#C2492B",
       img: dashBadge,
       pose: dashPose,
       blurb: "Follows a scent trail farther than anyone else in the crew.",
@@ -126,6 +130,7 @@ export const CHARACTERS = [
       name: "Wish",
       species: "Frog",
       sense: "Taste",
+      color: "#0FA98A",
       img: wishBadge,
       pose: wishPose,
       blurb: "Knows a good flavor faster than anyone in the crew.",
@@ -135,7 +140,7 @@ export const CHARACTERS = [
 
 export const ALL_ENTITIES = CHARACTERS.flatMap((c) => [
   { id: c.id, name: c.name, primary: c.primary, img: c.img },
-  { id: c.pet.id, name: c.pet.name, primary: c.secondary, img: c.pet.img },
+  { id: c.pet.id, name: c.pet.name, primary: c.pet.color, img: c.pet.img },
 ]);
 
 export function entityById(id) {
@@ -148,3 +153,21 @@ export function charById(id) {
     CHARACTERS.find((c) => c.pet.id === id)
   );
 }
+
+// Readable accent per entity, matched to their actual artwork. `primary`/
+// `secondary`/pet `color` above are the true brand colors (used for glow
+// tints and filled buttons), but a couple of them (Echo's neon green, Hope's
+// pale mint) are too washed-out to read as text or a thin border against a
+// light background — this gives every entity a version that stays legible.
+export const ACCENT = {
+  mia: { border: "#7C4FE0", text: "#7C4FE0" },
+  echo: { border: "#22B24A", text: "#E01E78" },
+  king: { border: "#3373E0", text: "#3373E0" },
+  chace: { border: "#E0393B", text: "#E0393B" },
+  hope: { border: "#3CA86B", text: "#6E5FB0" },
+  mega: { border: "#D9407F", text: "#D9407F" },
+  hum: { border: "#B38A00", text: "#B38A00" },
+  finx: { border: "#E8850A", text: "#E8850A" },
+  dash: { border: "#C2492B", text: "#C2492B" },
+  wish: { border: "#0E9179", text: "#0E9179" },
+};

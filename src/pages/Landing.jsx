@@ -1,16 +1,5 @@
 import { Link } from "react-router-dom";
-import { CHARACTERS } from "../data/characters.js";
-
-// Frame color per character, matched to their actual artwork (not just their
-// neon "primary" brand color, which is too pale/bright to read as card text
-// on a light background for Echo and Hope).
-const CARD_ACCENT = {
-  mia: { border: "#7C4FE0", text: "#7C4FE0" },
-  echo: { border: "#22B24A", text: "#E01E78" },
-  king: { border: "#3373E0", text: "#3373E0" },
-  chace: { border: "#E0393B", text: "#E0393B" },
-  hope: { border: "#3CA86B", text: "#6E5FB0" },
-};
+import { CHARACTERS, ACCENT } from "../data/characters.js";
 
 export default function Landing() {
   return (
@@ -52,7 +41,7 @@ export default function Landing() {
 
           <div className="crew-grid">
             {CHARACTERS.map((c) => {
-              const accent = CARD_ACCENT[c.id];
+              const accent = ACCENT[c.id];
               return (
                 <div
                   className="card"

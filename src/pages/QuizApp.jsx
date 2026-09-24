@@ -7,7 +7,7 @@ import {
   ShirtIcon, Sticker, Backpack, PenLine, ChevronRight, Star,
   Ear, Hand, Eye, Utensils, Zap, ChevronDown
 } from "lucide-react";
-import { CHARACTERS, ALL_ENTITIES, entityById } from "../data/characters.js";
+import { CHARACTERS, ALL_ENTITIES, entityById, ACCENT } from "../data/characters.js";
 import quizBank from "../data/quizBank.json";
 
 const FACTS_BANK = quizBank.factsBank;
@@ -16,18 +16,16 @@ const DIFF_XP = quizBank.meta.difficulty_xp;
 const COMBO_XP_EACH = quizBank.meta.combo_xp_each;
 const DIFFS = ["easy", "medium", "hard"];
 const DIFF_LABEL = { easy: "Easy", medium: "Medium", hard: "Hard" };
-const DIFF_COLOR = { easy: "#39FF88", medium: "#FFD84D", hard: "#FF3B3B" };
-
-const NATURAL_ICON = { mia: Compass, echo: Wind, king: Flame, chace: Mountain, hope: Droplets };
+const DIFF_COLOR = { easy: "#1FAE5A", medium: "#C97A00", hard: "#D62F31" };
 
 /* ---------------------------------------------------------
    TOKENS
 --------------------------------------------------------- */
-const bg = "#15121F";
-const surface = "#1E1930";
-const surfaceLight = "#271F3D";
-const ink = "#F6F3FF";
-const inkMuted = "#B7AFD1";
+const bg = "#FFF8EC";
+const surface = "#FFFFFF";
+const surfaceLight = "#F5ECDA";
+const ink = "#241A3D";
+const inkMuted = "#6E6482";
 
 const GEAR_TIERS = [
   { key: "rookie", label: "Rookie", xp: 0, itemLabel: "Signature fit" },
@@ -59,21 +57,20 @@ function nextTier(xp) {
   return GEAR_TIERS.find((t) => xp < t.xp) || null;
 }
 
-function ArtBadge({ img, primary, xp, size = 120, small }) {
+function ArtBadge({ img, color, xp, size = 120, small }) {
   const tier = tierFor(xp);
-  const glowStrength = tier.key === "icon" ? 0.65 : tier.key === "legend" ? 0.5 : tier.key === "pro" ? 0.3 : 0.12;
+  const glowStrength = tier.key === "icon" ? 0.45 : tier.key === "legend" ? 0.34 : tier.key === "pro" ? 0.22 : 0.1;
   return (
     <div style={{ position: "relative", width: size, height: size }}>
       {!small && (
         <div style={{
           position: "absolute", inset: -size * 0.12, borderRadius: "9999px",
-          background: `radial-gradient(circle, ${primary}${Math.round(glowStrength * 255).toString(16).padStart(2, "0")}, transparent 72%)`,
-          filter: tier.key === "legend" || tier.key === "icon" ? "blur(1px)" : "none",
+          background: `radial-gradient(circle, ${color}${Math.round(glowStrength * 255).toString(16).padStart(2, "0")}, transparent 72%)`,
         }} />
       )}
       <div style={{
         position: "relative", width: "100%", height: "100%", borderRadius: small ? 14 : 20,
-        background: surface, border: `2.5px solid ${primary}`, display: "flex",
+        background: surface, border: `2.5px solid ${color}`, display: "flex",
         alignItems: "center", justifyContent: "center", overflow: "hidden",
       }}>
         <img src={img} alt="" style={{ width: "88%", height: "88%", objectFit: "contain" }} />
@@ -81,10 +78,10 @@ function ArtBadge({ img, primary, xp, size = 120, small }) {
       {!small && tier.key !== "rookie" && (
         <div style={{
           position: "absolute", top: -6, right: -6, width: size * 0.28, height: size * 0.28,
-          borderRadius: "9999px", background: primary, display: "flex", alignItems: "center",
-          justifyContent: "center", border: `2px solid ${bg}`,
+          borderRadius: "9999px", background: color, display: "flex", alignItems: "center",
+          justifyContent: "center", border: `2px solid ${surface}`,
         }}>
-          <tier.Icon size={size * 0.15} color="#0c0c14" strokeWidth={2.5} />
+          <tier.Icon size={size * 0.15} color="#fff" strokeWidth={2.5} />
         </div>
       )}
     </div>
@@ -96,7 +93,7 @@ function DiffPill({ diff, active, onClick }) {
   return (
     <button onClick={onClick} style={{
       flex: 1, border: `2px solid ${active ? color : surfaceLight}`, borderRadius: 12,
-      background: active ? `${color}22` : surface, padding: "8px 4px", display: "flex",
+      background: active ? `${color}1A` : surface, padding: "8px 4px", display: "flex",
       flexDirection: "column", alignItems: "center", gap: 2,
     }}>
       <span style={{ fontWeight: 800, fontSize: "0.78rem", color: active ? color : inkMuted }}>
@@ -226,7 +223,7 @@ export default function QuizApp() {
           </div>
           {tab !== "detail" && (
             <div style={{ background: surfaceLight, borderRadius: 999, padding: "6px 12px", display: "flex", alignItems: "center", gap: 6, fontSize: "0.8rem", fontWeight: 800 }}>
-              <Star size={14} color="#FFD84D" fill="#FFD84D" />
+              <Star size={14} color="#D9A400" fill="#D9A400" />
               Lv.{level}
             </div>
           )}
@@ -264,11 +261,11 @@ export default function QuizApp() {
 
 function NavBtn({ icon: Icon, label, active, onClick, badge }) {
   return (
-    <button onClick={onClick} style={{ background: "none", border: "none", display: "flex", flexDirection: "column", alignItems: "center", gap: 3, color: active ? "#FF3EC8" : inkMuted, position: "relative", width: 64 }}>
+    <button onClick={onClick} style={{ background: "none", border: "none", display: "flex", flexDirection: "column", alignItems: "center", gap: 3, color: active ? "#E0299E" : inkMuted, position: "relative", width: 64 }}>
       <Icon size={22} strokeWidth={active ? 2.6 : 2} />
       <span style={{ fontSize: "0.66rem", fontWeight: 700 }}>{label}</span>
       {badge && (
-        <span style={{ position: "absolute", top: -4, right: 8, background: "#FF3B3B", color: "#fff", fontSize: "0.6rem", fontWeight: 800, borderRadius: 999, padding: "1px 5px" }}>{badge}</span>
+        <span style={{ position: "absolute", top: -4, right: 8, background: "#D62F31", color: "#fff", fontSize: "0.6rem", fontWeight: 800, borderRadius: 999, padding: "1px 5px" }}>{badge}</span>
       )}
     </button>
   );
@@ -280,22 +277,22 @@ function HomeScreen({ xp, totalXp, level, onOpen, onCombo }) {
 
   return (
     <div>
-      <div style={{ background: surface, borderRadius: 20, padding: "16px 18px", margin: "6px 0 14px" }}>
+      <div style={{ background: surface, border: `1px solid ${surfaceLight}`, borderRadius: 20, padding: "16px 18px", margin: "6px 0 14px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.8rem", color: inkMuted, marginBottom: 6 }}>
           <span>Crew Level {level}</span>
           <span>{totalXp} XP</span>
         </div>
         <div style={{ height: 10, background: surfaceLight, borderRadius: 999, overflow: "hidden" }}>
-          <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #FF3EC8, #2E8BFF)", borderRadius: 999 }} />
+          <div style={{ height: "100%", width: `${progress}%`, background: "linear-gradient(90deg, #E0299E, #3373E0)", borderRadius: 999 }} />
         </div>
       </div>
 
       <button onClick={onCombo} style={{
-        width: "100%", background: "linear-gradient(90deg, #FF3EC833, #2E8BFF33)", border: `2px solid #FF3EC855`,
+        width: "100%", background: "linear-gradient(90deg, #E0299E1A, #3373E01A)", border: `2px solid #E0299E55`,
         borderRadius: 16, padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <Zap size={18} color="#FF3EC8" />
+          <Zap size={18} color="#E0299E" />
           <span style={{ fontWeight: 800, fontSize: "0.85rem" }}>Try a Crew Combo — earn XP for two at once!</span>
         </div>
         <ChevronRight size={16} color={inkMuted} />
@@ -310,16 +307,18 @@ function HomeScreen({ xp, totalXp, level, onOpen, onCombo }) {
           const charXp = xp[c.id];
           const petXp = xp[c.pet.id];
           const t = tierFor(charXp);
+          const accent = ACCENT[c.id];
+          const petAccent = ACCENT[c.pet.id];
           return (
             <button key={c.id} onClick={() => onOpen(c)} style={{
-              background: surface, border: `2px solid ${c.primary}44`, borderRadius: 18, padding: "16px 10px 12px",
+              background: surface, border: `2px solid ${accent.border}44`, borderRadius: 18, padding: "16px 10px 12px",
               display: "flex", flexDirection: "column", alignItems: "center", gap: 8, position: "relative",
             }}>
               <div style={{ position: "relative" }}>
-                <ArtBadge img={c.img} primary={c.primary} xp={charXp} size={92} />
+                <ArtBadge img={c.img} color={accent.border} xp={charXp} size={92} />
                 <div style={{
                   position: "absolute", bottom: -6, left: -6, width: 34, height: 34, borderRadius: "9999px",
-                  background: surface, border: `2px solid ${c.secondary}`, overflow: "hidden", display: "flex",
+                  background: surface, border: `2px solid ${petAccent.border}`, overflow: "hidden", display: "flex",
                   alignItems: "center", justifyContent: "center",
                 }}>
                   <img src={c.pet.img} alt="" style={{ width: "85%", height: "85%", objectFit: "contain" }} />
@@ -327,7 +326,7 @@ function HomeScreen({ xp, totalXp, level, onOpen, onCombo }) {
               </div>
               <div style={{ fontFamily: "'Fredoka', sans-serif", fontWeight: 700, fontSize: "0.95rem" }}>{c.name}</div>
               <div style={{ fontSize: "0.68rem", color: inkMuted, textAlign: "center" }}>{c.species} · {c.natural} · {c.hiphop}</div>
-              <div style={{ fontSize: "0.65rem", fontWeight: 800, color: c.primary, background: `${c.primary}22`, padding: "2px 8px", borderRadius: 999 }}>
+              <div style={{ fontSize: "0.65rem", fontWeight: 800, color: accent.text, background: `${accent.border}1A`, padding: "2px 8px", borderRadius: 999 }}>
                 {t.label} · {charXp} XP
               </div>
               <div style={{ fontSize: "0.6rem", color: inkMuted }}>{c.pet.name}: {petXp} XP</div>
@@ -348,23 +347,25 @@ function DetailScreen({ character, xp, factSource, onSwitchSource, difficulty, o
   const isAnswered = answered[fact.id];
   const tier = tierFor(entityXp);
   const upcoming = nextTier(entityXp);
-  const accentColor = isPet ? character.secondary : character.primary;
+  const accent = ACCENT[activeEntity.id];
+  const mainAccent = ACCENT[character.id];
+  const petAccent = ACCENT[character.pet.id];
 
   return (
     <div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "10px 0 6px" }}>
-        <ArtBadge img={activeEntity.pose} primary={accentColor} xp={entityXp} size={150} />
+        <ArtBadge img={activeEntity.pose} color={accent.border} xp={entityXp} size={150} />
         <div style={{ color: inkMuted, fontSize: "0.85rem", marginTop: 12, textAlign: "center" }}>{activeEntity.blurb}</div>
-        <div style={{ fontSize: "0.72rem", color: accentColor, fontWeight: 800, marginTop: 6 }}>
+        <div style={{ fontSize: "0.72rem", color: accent.text, fontWeight: 800, marginTop: 6 }}>
           {isPet ? `${character.pet.species.toUpperCase()} · SENSE OF ${character.pet.sense.toUpperCase()}` : `${character.species.toUpperCase()} · ${character.natural.toUpperCase()} · ${character.hiphop.toUpperCase()}`}
         </div>
       </div>
 
-      <div style={{ display: "flex", background: surface, borderRadius: 999, padding: 4, margin: "16px 0 10px" }}>
-        <button onClick={() => onSwitchSource("main")} style={{ flex: 1, border: "none", borderRadius: 999, padding: "9px 0", fontWeight: 800, fontSize: "0.8rem", background: factSource === "main" ? character.primary : "transparent", color: factSource === "main" ? "#0c0c14" : inkMuted }}>
+      <div style={{ display: "flex", background: surfaceLight, borderRadius: 999, padding: 4, margin: "16px 0 10px" }}>
+        <button onClick={() => onSwitchSource("main")} style={{ flex: 1, border: "none", borderRadius: 999, padding: "9px 0", fontWeight: 800, fontSize: "0.8rem", background: factSource === "main" ? mainAccent.border : "transparent", color: factSource === "main" ? "#fff" : inkMuted }}>
           {character.name}'s Facts
         </button>
-        <button onClick={() => onSwitchSource("pet")} style={{ flex: 1, border: "none", borderRadius: 999, padding: "9px 0", fontWeight: 800, fontSize: "0.8rem", background: factSource === "pet" ? character.secondary : "transparent", color: factSource === "pet" ? "#0c0c14" : inkMuted }}>
+        <button onClick={() => onSwitchSource("pet")} style={{ flex: 1, border: "none", borderRadius: 999, padding: "9px 0", fontWeight: 800, fontSize: "0.8rem", background: factSource === "pet" ? petAccent.border : "transparent", color: factSource === "pet" ? "#fff" : inkMuted }}>
           {character.pet.name}'s Facts
         </button>
       </div>
@@ -373,20 +374,20 @@ function DetailScreen({ character, xp, factSource, onSwitchSource, difficulty, o
         {DIFFS.map((d) => <DiffPill key={d} diff={d} active={difficulty === d} onClick={() => onSwitchDifficulty(d)} />)}
       </div>
 
-      <div style={{ background: surface, borderRadius: 16, padding: 14, marginBottom: 16 }}>
+      <div style={{ background: surface, border: `1px solid ${surfaceLight}`, borderRadius: 16, padding: 14, marginBottom: 16 }}>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.78rem", color: inkMuted }}>
           <span>{activeEntity.name}: {tier.label}</span>
           <span>{upcoming ? `${upcoming.xp - entityXp} XP to ${upcoming.label}` : "Max tier!"}</span>
         </div>
         <div style={{ height: 8, background: surfaceLight, borderRadius: 999, marginTop: 6, overflow: "hidden" }}>
-          <div style={{ height: "100%", width: `${upcoming ? (entityXp / upcoming.xp) * 100 : 100}%`, background: accentColor }} />
+          <div style={{ height: "100%", width: `${upcoming ? (entityXp / upcoming.xp) * 100 : 100}%`, background: accent.border }} />
         </div>
       </div>
 
-      <div style={{ background: surface, borderRadius: 18, padding: 18, border: `2px solid ${accentColor}33` }}>
+      <div style={{ background: surface, borderRadius: 18, padding: 18, border: `2px solid ${accent.border}33` }}>
         <div style={{ display: "flex", gap: 6, marginBottom: 10 }}>
           {facts.map((f, i) => (
-            <div key={f.id} onClick={() => setActiveFactIdx(i)} style={{ width: 8, height: 8, borderRadius: 999, background: i === activeFactIdx ? accentColor : surfaceLight, cursor: "pointer" }} />
+            <div key={f.id} onClick={() => setActiveFactIdx(i)} style={{ width: 8, height: 8, borderRadius: 999, background: i === activeFactIdx ? accent.border : surfaceLight, cursor: "pointer" }} />
           ))}
         </div>
 
@@ -401,12 +402,12 @@ function DetailScreen({ character, xp, factSource, onSwitchSource, difficulty, o
           {fact.options.map((opt, i) => {
             let stateColor = surfaceLight;
             if (isAnswered || pickedOption !== null) {
-              if (i === fact.answer) stateColor = "#39FF8844";
-              else if (i === pickedOption) stateColor = "#FF3B3B44";
+              if (i === fact.answer) stateColor = "#1FAE5A26";
+              else if (i === pickedOption) stateColor = "#D62F3126";
             }
             return (
               <button key={i} onClick={() => onAnswer(fact, i, activeEntity.id)} disabled={isAnswered} style={{
-                background: stateColor, border: `2px solid ${i === pickedOption ? accentColor : "transparent"}`, borderRadius: 12,
+                background: stateColor, border: `2px solid ${i === pickedOption ? accent.border : "transparent"}`, borderRadius: 12,
                 padding: "10px 14px", textAlign: "left", color: ink, fontWeight: 700, fontSize: "0.85rem",
               }}>
                 {opt}
@@ -416,15 +417,15 @@ function DetailScreen({ character, xp, factSource, onSwitchSource, difficulty, o
         </div>
 
         {feedback && (
-          <div style={{ marginTop: 12, fontSize: "0.85rem", fontWeight: 800, color: feedback === "correct" ? "#39FF88" : "#FF8A1E" }}>
+          <div style={{ marginTop: 12, fontSize: "0.85rem", fontWeight: 800, color: feedback === "correct" ? "#1FAE5A" : "#E67300" }}>
             {feedback === "correct" ? `+${DIFF_XP[difficulty]} XP — nice ear for facts!` : "Not quite — check the highlighted answer."}
           </div>
         )}
 
         {activeFactIdx < facts.length - 1 && (isAnswered || feedback) && (
           <button onClick={() => onNext(facts.length - 1)} style={{
-            marginTop: 14, width: "100%", background: accentColor, border: "none", borderRadius: 999, padding: "10px 0",
-            fontWeight: 800, color: "#0c0c14", display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
+            marginTop: 14, width: "100%", background: accent.border, border: "none", borderRadius: 999, padding: "10px 0",
+            fontWeight: 800, color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
           }}>
             Next fact <ChevronRight size={16} />
           </button>
@@ -436,12 +437,12 @@ function DetailScreen({ character, xp, factSource, onSwitchSource, difficulty, o
         {GEAR_TIERS.map((t) => {
           const unlocked = entityXp >= t.xp;
           return (
-            <div key={t.key} style={{ background: surface, borderRadius: 14, padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", opacity: unlocked ? 1 : 0.55 }}>
+            <div key={t.key} style={{ background: surface, border: `1px solid ${surfaceLight}`, borderRadius: 14, padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", opacity: unlocked ? 1 : 0.55 }}>
               <div>
                 <div style={{ fontWeight: 800, fontSize: "0.85rem" }}>{t.itemLabel}</div>
                 <div style={{ fontSize: "0.7rem", color: inkMuted }}>{t.label} tier · {t.xp} XP</div>
               </div>
-              {unlocked ? <CheckCircle2 size={20} color={accentColor} /> : <Lock size={18} color={inkMuted} />}
+              {unlocked ? <CheckCircle2 size={20} color={accent.text} /> : <Lock size={18} color={inkMuted} />}
             </div>
           );
         })}
@@ -460,14 +461,16 @@ function ComboScreen({ xp, openCombo, toggleCombo, comboAnswered, comboPicked, c
     const [aId, bId] = combo.pairIds;
     const a = entityById(aId);
     const b = entityById(bId);
+    const accentA = ACCENT[aId];
+    const accentB = ACCENT[bId];
     return (
-      <div key={combo.id} style={{ background: surface, borderRadius: 16, border: `2px solid ${a.primary}33`, overflow: "hidden", marginBottom: 10 }}>
+      <div key={combo.id} style={{ background: surface, borderRadius: 16, border: `2px solid ${accentA.border}33`, overflow: "hidden", marginBottom: 10 }}>
         <button onClick={() => toggleCombo(combo.id)} style={{ width: "100%", background: "none", border: "none", padding: "12px 14px", display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{ display: "flex" }}>
-            <div style={{ width: 34, height: 34, borderRadius: 999, border: `2px solid ${a.primary}`, overflow: "hidden", background: bg, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 34, height: 34, borderRadius: 999, border: `2px solid ${accentA.border}`, overflow: "hidden", background: surface, display: "flex", alignItems: "center", justifyContent: "center" }}>
               <img src={a.img} alt="" style={{ width: "85%", height: "85%", objectFit: "contain" }} />
             </div>
-            <div style={{ width: 34, height: 34, borderRadius: 999, border: `2px solid ${b.primary}`, overflow: "hidden", background: bg, display: "flex", alignItems: "center", justifyContent: "center", marginLeft: -10 }}>
+            <div style={{ width: 34, height: 34, borderRadius: 999, border: `2px solid ${accentB.border}`, overflow: "hidden", background: surface, display: "flex", alignItems: "center", justifyContent: "center", marginLeft: -10 }}>
               <img src={b.img} alt="" style={{ width: "85%", height: "85%", objectFit: "contain" }} />
             </div>
           </div>
@@ -475,7 +478,7 @@ function ComboScreen({ xp, openCombo, toggleCombo, comboAnswered, comboPicked, c
             <div style={{ fontWeight: 800, fontSize: "0.85rem" }}>{combo.title}</div>
             <div style={{ fontSize: "0.68rem", color: inkMuted }}>{combo.theme}</div>
           </div>
-          {isDone && <CheckCircle2 size={18} color="#39FF88" />}
+          {isDone && <CheckCircle2 size={18} color="#1FAE5A" />}
           <ChevronDown size={16} color={inkMuted} style={{ transform: isOpen ? "rotate(180deg)" : "none" }} />
         </button>
 
@@ -485,18 +488,18 @@ function ComboScreen({ xp, openCombo, toggleCombo, comboAnswered, comboPicked, c
             <div style={{ fontSize: "0.78rem", color: inkMuted, marginBottom: 14 }}>Did you know? {combo.fact}</div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
               <div style={{ fontWeight: 800, fontSize: "0.85rem" }}>{combo.q}</div>
-              <div style={{ fontSize: "0.6rem", fontWeight: 800, color: "#FF3EC8", whiteSpace: "nowrap", marginLeft: 8 }}>+{COMBO_XP_EACH} XP each</div>
+              <div style={{ fontSize: "0.6rem", fontWeight: 800, color: "#E0299E", whiteSpace: "nowrap", marginLeft: 8 }}>+{COMBO_XP_EACH} XP each</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {combo.options.map((opt, i) => {
                 let stateColor = surfaceLight;
                 if (isDone || comboPicked !== null) {
-                  if (i === combo.answer) stateColor = "#39FF8844";
-                  else if (i === comboPicked) stateColor = "#FF3B3B44";
+                  if (i === combo.answer) stateColor = "#1FAE5A26";
+                  else if (i === comboPicked) stateColor = "#D62F3126";
                 }
                 return (
                   <button key={i} onClick={() => onAnswer(combo, i)} disabled={isDone} style={{
-                    background: stateColor, border: `2px solid ${i === comboPicked ? a.primary : "transparent"}`, borderRadius: 12,
+                    background: stateColor, border: `2px solid ${i === comboPicked ? accentA.border : "transparent"}`, borderRadius: 12,
                     padding: "10px 14px", textAlign: "left", color: ink, fontWeight: 700, fontSize: "0.85rem",
                   }}>
                     {opt}
@@ -505,7 +508,7 @@ function ComboScreen({ xp, openCombo, toggleCombo, comboAnswered, comboPicked, c
               })}
             </div>
             {comboFeedback && isOpen && (
-              <div style={{ marginTop: 10, fontSize: "0.8rem", fontWeight: 800, color: comboFeedback === "correct" ? "#39FF88" : "#FF8A1E" }}>
+              <div style={{ marginTop: 10, fontSize: "0.8rem", fontWeight: 800, color: comboFeedback === "correct" ? "#1FAE5A" : "#E67300" }}>
                 {comboFeedback === "correct" ? `+${COMBO_XP_EACH} XP to ${a.name} and +${COMBO_XP_EACH} XP to ${b.name}!` : "Not quite — check the highlighted answer."}
               </div>
             )}
@@ -535,7 +538,7 @@ function ShopScreen({ shopCat, setShopCat, cart, toggleCart }) {
       <div style={{ display: "flex", gap: 8, margin: "10px 0 16px", overflowX: "auto" }}>
         {CATS.map((c) => (
           <button key={c} onClick={() => setShopCat(c)} style={{
-            background: shopCat === c ? "#FF3EC8" : surface, color: shopCat === c ? "#0c0c14" : inkMuted, border: "none",
+            background: shopCat === c ? "#E0299E" : surface, color: shopCat === c ? "#fff" : inkMuted, border: `1px solid ${shopCat === c ? "#E0299E" : surfaceLight}`,
             borderRadius: 999, padding: "8px 16px", fontWeight: 800, fontSize: "0.78rem", whiteSpace: "nowrap",
           }}>
             {c}
@@ -545,19 +548,20 @@ function ShopScreen({ shopCat, setShopCat, cart, toggleCart }) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
         {items.map((item) => {
           const char = CHARACTERS.find((c) => c.id === item.charId);
+          const accent = ACCENT[char.id];
           const inCart = cart[item.id];
           return (
-            <div key={item.id} style={{ background: surface, borderRadius: 16, padding: 14, border: `2px solid ${char.primary}33` }}>
-              <div style={{ height: 70, borderRadius: 12, background: `linear-gradient(135deg, ${char.primary}33, ${char.secondary}33)`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
-                <item.Icon size={30} color={char.primary} />
+            <div key={item.id} style={{ background: surface, borderRadius: 16, padding: 14, border: `2px solid ${accent.border}33` }}>
+              <div style={{ height: 70, borderRadius: 12, background: `${accent.border}14`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 10 }}>
+                <item.Icon size={30} color={accent.text} />
               </div>
               <div style={{ fontWeight: 800, fontSize: "0.82rem", marginBottom: 2 }}>{item.name}</div>
               <div style={{ fontSize: "0.68rem", color: inkMuted, marginBottom: 8 }}>{item.cat}</div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontWeight: 800, fontSize: "0.85rem" }}>{item.price}</span>
                 <button onClick={() => toggleCart(item.id)} style={{
-                  background: inCart ? "#39FF88" : char.primary, border: "none", borderRadius: 999, padding: "5px 10px",
-                  fontWeight: 800, fontSize: "0.68rem", color: "#0c0c14",
+                  background: inCart ? "#1FAE5A" : accent.border, border: "none", borderRadius: 999, padding: "5px 10px",
+                  fontWeight: 800, fontSize: "0.68rem", color: "#fff",
                 }}>
                   {inCart ? "Added ✓" : "Add"}
                 </button>
@@ -577,7 +581,7 @@ function ProfileScreen({ xp, totalXp, level }) {
         <div style={{ display: "flex" }}>
           {CHARACTERS.map((c, i) => (
             <div key={c.id} style={{ marginLeft: i === 0 ? 0 : -16, zIndex: CHARACTERS.length - i }}>
-              <ArtBadge img={c.img} primary={c.primary} xp={xp[c.id]} size={58} />
+              <ArtBadge img={c.img} color={ACCENT[c.id].border} xp={xp[c.id]} size={58} />
             </div>
           ))}
         </div>
@@ -591,16 +595,18 @@ function ProfileScreen({ xp, totalXp, level }) {
           const petXp = xp[c.pet.id];
           const t = tierFor(charXp);
           const petT = tierFor(petXp);
+          const accent = ACCENT[c.id];
+          const petAccent = ACCENT[c.pet.id];
           return (
-            <div key={c.id} style={{ background: surface, borderRadius: 16, padding: 12, display: "flex", alignItems: "center", gap: 12 }}>
-              <ArtBadge img={c.img} primary={c.primary} xp={charXp} size={50} />
+            <div key={c.id} style={{ background: surface, border: `1px solid ${surfaceLight}`, borderRadius: 16, padding: 12, display: "flex", alignItems: "center", gap: 12 }}>
+              <ArtBadge img={c.img} color={accent.border} xp={charXp} size={50} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 800, fontSize: "0.85rem" }}>{c.name} · {t.label}</div>
                 <div style={{ fontSize: "0.7rem", color: inkMuted }}>{c.pet.name} the {c.pet.species} · {petT.label}</div>
               </div>
               <div style={{ textAlign: "right" }}>
-                <div style={{ fontWeight: 800, color: c.primary, fontSize: "0.78rem" }}>{charXp} XP</div>
-                <div style={{ fontWeight: 800, color: c.secondary, fontSize: "0.7rem" }}>{petXp} XP</div>
+                <div style={{ fontWeight: 800, color: accent.text, fontSize: "0.78rem" }}>{charXp} XP</div>
+                <div style={{ fontWeight: 800, color: petAccent.text, fontSize: "0.7rem" }}>{petXp} XP</div>
               </div>
             </div>
           );
