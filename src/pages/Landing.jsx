@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { CHARACTERS } from "../data/characters.js";
 
-const CARD_CLASS = {
-  mia: "mia",
-  echo: "echo",
-  king: "king",
-  chace: "chace",
-  hope: "hope",
+// Frame color per character, matched to their actual artwork (not just their
+// neon "primary" brand color, which is too pale/bright to read as card text
+// on a light background for Echo and Hope).
+const CARD_ACCENT = {
+  mia: { border: "#7C4FE0", text: "#7C4FE0" },
+  echo: { border: "#22B24A", text: "#E01E78" },
+  king: { border: "#3373E0", text: "#3373E0" },
+  chace: { border: "#E0393B", text: "#E0393B" },
+  hope: { border: "#3CA86B", text: "#6E5FB0" },
 };
 
 export default function Landing() {
@@ -32,7 +35,7 @@ export default function Landing() {
             <span key={c.id} style={{ background: c.primary }} />
           ))}
         </div>
-        <h1>Five friends.<br />Five elements.<br />One block party.</h1>
+        <h1>Five friends,<br />five elements,<br />one club.</h1>
         <p className="tag">Welcome to Boo York — where Mia, Echo, King, Chace, and Hope turn earth, air, fire, water, and space into beats, rhymes, and moves.</p>
         <div className="hero-cta">
           <a href="#crew" className="btn btn-primary">Meet the Crew</a>
@@ -48,16 +51,23 @@ export default function Landing() {
           </div>
 
           <div className="crew-grid">
-            {CHARACTERS.map((c) => (
-              <div className={`card ${CARD_CLASS[c.id]}`} key={c.id}>
-                <div className="badge">
-                  <img src={c.img} alt={`${c.name} badge`} />
+            {CHARACTERS.map((c) => {
+              const accent = CARD_ACCENT[c.id];
+              return (
+                <div
+                  className="card"
+                  key={c.id}
+                  style={{ borderColor: accent.border, boxShadow: `6px 6px 0 ${accent.border}` }}
+                >
+                  <div className="badge" style={{ borderColor: accent.border }}>
+                    <img src={c.img} alt={`${c.name} badge`} />
+                  </div>
+                  <h3>{c.name}</h3>
+                  <div className="role" style={{ color: accent.text }}>{c.species} · {c.natural} · {c.hiphop}</div>
+                  <p className="blurb">{c.blurb}</p>
                 </div>
-                <h3>{c.name}</h3>
-                <div className="role">{c.species} · {c.natural} · {c.hiphop}</div>
-                <p className="blurb">{c.blurb}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -100,30 +110,23 @@ export default function Landing() {
 
 const LANDING_CSS = `
 .landing {
-  --ink:#160E2B;
-  --paper:#FBF7FF;
-  --wall:#1C1338;
-  --wall-2:#241645;
-
-  --mia:#B537F2;
-  --mia-dk:#7E1FB8;
-  --echo:#28E0DA;
-  --echo-dk:#0F9E99;
-  --king:#FF6A2B;
-  --king-dk:#C43F0E;
-  --chace:#43D66B;
-  --chace-dk:#219246;
-  --hope:#3E8CFF;
-  --hope-dk:#1C5FCC;
+  --ink:#241A3D;
+  --ink-muted:#6E6482;
+  --paper:#FFFFFF;
+  --bg:#FFF8EC;
+  --card:#FFFFFF;
+  --brand:#FF6A2B;
+  --brand-dk:#C43F0E;
 
   --line:3px;
 
-  background:var(--wall);
+  background:var(--bg);
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(181,55,242,0.16), transparent 40%),
-    radial-gradient(circle at 88% 8%, rgba(62,140,255,0.14), transparent 40%),
-    radial-gradient(circle at 75% 85%, rgba(255,106,43,0.12), transparent 45%);
-  color:var(--paper);
+    radial-gradient(circle at 12% 12%, rgba(255,196,74,0.35), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(120,200,255,0.30), transparent 42%),
+    radial-gradient(circle at 20% 92%, rgba(255,138,178,0.28), transparent 42%),
+    radial-gradient(circle at 82% 88%, rgba(124,232,164,0.28), transparent 42%);
+  color:var(--ink);
   font-family:'Nunito', sans-serif;
   font-weight:500;
   min-height:100vh;
@@ -136,7 +139,7 @@ const LANDING_CSS = `
 /* NAV */
 .landing nav{
   position:sticky; top:0; z-index:50;
-  background:rgba(22,14,43,0.88);
+  background:rgba(255,248,236,0.88);
   backdrop-filter:blur(6px);
   border-bottom:var(--line) solid var(--ink);
 }
@@ -145,9 +148,9 @@ const LANDING_CSS = `
   display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
 }
 .landing .wordmark{font-size:1.35rem; font-weight:700; letter-spacing:0.01em;}
-.landing .wordmark span{color:var(--king);}
+.landing .wordmark span{color:var(--brand);}
 .landing .nav-links{display:flex; gap:26px; font-weight:700; font-size:0.98rem;}
-.landing .nav-links a{text-decoration:none; opacity:0.88; transition:opacity 0.15s;}
+.landing .nav-links a{text-decoration:none; opacity:0.82; transition:opacity 0.15s;}
 .landing .nav-links a:hover{opacity:1;}
 
 /* HERO */
@@ -178,11 +181,11 @@ const LANDING_CSS = `
   font-size:clamp(2.6rem, 7vw, 4.6rem);
   line-height:1.02;
   font-weight:700;
-  text-shadow:3px 3px 0 var(--ink);
+  color:var(--ink);
 }
 .landing .hero p.tag{
   max-width:520px; margin:22px auto 0;
-  font-size:1.15rem; font-weight:700; color:#D9CEFF;
+  font-size:1.15rem; font-weight:700; color:var(--ink-muted);
 }
 .landing .hero-cta{
   margin-top:38px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
@@ -199,13 +202,13 @@ const LANDING_CSS = `
 }
 .landing .btn:hover{transform:translate(-1px,-1px); box-shadow:5px 5px 0 var(--ink);}
 .landing .btn:active{transform:translate(2px,2px); box-shadow:1px 1px 0 var(--ink);}
-.landing .btn-primary{background:var(--king); color:var(--ink);}
+.landing .btn-primary{background:var(--brand); color:#2B1200;}
 .landing .btn-ghost{background:var(--paper); color:var(--ink);}
 
 /* SECTION HEADINGS */
 .landing .section-head{text-align:center; max-width:560px; margin:0 auto 52px;}
 .landing .section-head h2{font-size:clamp(1.9rem, 4vw, 2.6rem);}
-.landing .section-head p{margin-top:12px; color:#D9CEFF; font-weight:700;}
+.landing .section-head p{margin-top:12px; color:var(--ink-muted); font-weight:700;}
 
 /* CREW */
 .landing .crew-grid{
@@ -214,12 +217,11 @@ const LANDING_CSS = `
   gap:26px;
 }
 .landing .card{
-  background:var(--wall-2);
+  background:var(--card);
   border:var(--line) solid var(--ink);
   border-radius:22px;
   padding:26px 20px 24px;
   text-align:center;
-  box-shadow:6px 6px 0 var(--ink);
 }
 .landing .badge{
   width:96px; height:96px; margin:0 auto 18px;
@@ -235,27 +237,7 @@ const LANDING_CSS = `
   font-weight:800; font-size:0.82rem; letter-spacing:0.02em;
   margin-bottom:12px;
 }
-.landing .card p.blurb{font-size:0.95rem; line-height:1.5; color:#E7E0FA;}
-
-.landing .card.mia{border-color:var(--mia-dk); box-shadow:6px 6px 0 var(--mia-dk);}
-.landing .card.mia .badge{border-color:var(--mia-dk);}
-.landing .card.mia .role{color:var(--mia);}
-
-.landing .card.echo{border-color:var(--echo-dk); box-shadow:6px 6px 0 var(--echo-dk);}
-.landing .card.echo .badge{border-color:var(--echo-dk);}
-.landing .card.echo .role{color:var(--echo);}
-
-.landing .card.king{border-color:var(--king-dk); box-shadow:6px 6px 0 var(--king-dk);}
-.landing .card.king .badge{border-color:var(--king-dk);}
-.landing .card.king .role{color:var(--king);}
-
-.landing .card.chace{border-color:var(--chace-dk); box-shadow:6px 6px 0 var(--chace-dk);}
-.landing .card.chace .badge{border-color:var(--chace-dk);}
-.landing .card.chace .role{color:var(--chace);}
-
-.landing .card.hope{border-color:var(--hope-dk); box-shadow:6px 6px 0 var(--hope-dk);}
-.landing .card.hope .badge{border-color:var(--hope-dk);}
-.landing .card.hope .role{color:var(--hope);}
+.landing .card p.blurb{font-size:0.95rem; line-height:1.5; color:var(--ink-muted);}
 
 /* SHOP */
 .landing .shop-grid{
@@ -264,14 +246,14 @@ const LANDING_CSS = `
   gap:24px;
 }
 .landing .shop-card{
-  background:var(--wall-2);
+  background:var(--card);
   border:var(--line) solid var(--ink);
   border-radius:20px;
   padding:30px 22px;
   box-shadow:6px 6px 0 var(--ink);
 }
 .landing .shop-card h3{font-size:1.2rem; margin-bottom:8px;}
-.landing .shop-card p{font-size:0.92rem; color:#D9CEFF; margin-bottom:18px; line-height:1.5;}
+.landing .shop-card p{font-size:0.92rem; color:var(--ink-muted); margin-bottom:18px; line-height:1.5;}
 .landing .shop-card .btn{padding:10px 22px; font-size:0.92rem;}
 
 /* FOOTER */
@@ -281,7 +263,7 @@ const LANDING_CSS = `
   text-align:center;
 }
 .landing footer .wordmark{font-size:1.1rem; margin-bottom:10px;}
-.landing footer p{color:#B7ABD9; font-size:0.92rem; margin:6px 0;}
+.landing footer p{color:var(--ink-muted); font-size:0.92rem; margin:6px 0;}
 .landing footer a{text-decoration:underline; font-weight:700;}
 
 @media (prefers-reduced-motion: reduce){
